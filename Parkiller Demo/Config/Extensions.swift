@@ -9,6 +9,16 @@
 import UIKit
 
 
+extension Int {
+    
+    func toDecimal() -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .DecimalStyle
+        return formatter.stringFromNumber(self)!
+    }
+    
+}
+
 extension UIViewController {
     
     public func showActivityIndicator(view: UIView, seconds: Double, completion: () -> Void) {
@@ -110,6 +120,18 @@ extension UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func showSettingsAlert(tittle : String, message : String)  {
+        let alert = UIAlertController (title: tittle, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func showAlertWithCompletion(tittle : String, message : String, completion: () -> Void) {
         let alert = UIAlertController(title: tittle, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Dissmiss", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
@@ -140,6 +162,14 @@ extension UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func sendLocalNotificationWithText(message: String) {
+        let notification = UILocalNotification()
+        notification.alertBody = message
+        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
 }
 
 extension UIColor {
@@ -153,24 +183,38 @@ extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
-    class func mkSecondaryBlueLight() -> UIColor {
-        let red = CGFloat(14) / 255
-        let green = CGFloat(80) / 255
-        let blue = CGFloat(152) / 255
+    class func mk200mts() -> UIColor {
+        let red = CGFloat(227) / 255
+        let green = CGFloat(72) / 255
+        let blue = CGFloat(37) / 255
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
-    class func mkSecondaryBlueDark() -> UIColor {
-        let red = CGFloat(7) / 255
-        let green = CGFloat(69) / 255
-        let blue = CGFloat(137) / 255
+    class func mk100mts() -> UIColor {
+        let red = CGFloat(117) / 255
+        let green = CGFloat(117) / 255
+        let blue = CGFloat(82) / 255
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
-    class func mkTerciaryBlueLight() -> UIColor {
-        let red = CGFloat(20) / 255
-        let green = CGFloat(100) / 255
-        let blue = CGFloat(189) / 255
+    class func mk50mts() -> UIColor {
+        let red = CGFloat(255) / 255
+        let green = CGFloat(241) / 255
+        let blue = CGFloat(67) / 255
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+    class func mk10mts() -> UIColor {
+        let red = CGFloat(93) / 255
+        let green = CGFloat(197) / 255
+        let blue = CGFloat(78) / 255
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+    class func mkPrincipalRed() -> UIColor {
+        let red = CGFloat(255) / 255
+        let green = CGFloat(51) / 255
+        let blue = CGFloat(51) / 255
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
     
