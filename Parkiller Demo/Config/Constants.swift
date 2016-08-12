@@ -16,3 +16,5 @@ let UP_100200MTS_MESSAGE = "Estás lejos del punto objetivo"
 let UP_50100MTS_MESSAGE = "Estás próximo al punto objetivo"
 let UP_1050MTS_MESSAGE = "Estás muy próximo al punto objetivo"
 let IN_10MTS_MESSAGE = "Estás en el punto objetivo"
+
+let BACKGROUND_QUEUE = dispatch_get_global_queue(QOS_CLASS_BACKGROUND,0)

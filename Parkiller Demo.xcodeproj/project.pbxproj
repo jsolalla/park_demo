@@ -115,9 +115,6 @@
 			children = (
 				225344131D5D469500037012 /* Config */,
 				225344141D5D46DC00037012 /* Utilities */,
-				225344151D5D46E200037012 /* Resources */,
-				225344121D5D468F00037012 /* Controller */,
-				225344111D5D468200037012 /* Views */,
 				225343FF1D5D467700037012 /* AppDelegate.swift */,
 				225344011D5D467700037012 /* ViewController.swift */,
 				225344031D5D467700037012 /* Main.storyboard */,
@@ -126,20 +123,6 @@
 				2253440B1D5D467700037012 /* Info.plist */,
 			);
 			path = "Parkiller Demo";
-			sourceTree = "<group>";
-		};
-		225344111D5D468200037012 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		225344121D5D468F00037012 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		225344131D5D469500037012 /* Config */ = {
@@ -158,13 +141,6 @@
 				225344461D5D67FD00037012 /* Tools.swift */,
 			);
 			name = Utilities;
-			sourceTree = "<group>";
-		};
-		225344151D5D46E200037012 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		225344161D5D476F00037012 /* Frameworks */ = {
@@ -224,6 +200,11 @@
 				TargetAttributes = {
 					225343FB1D5D467600037012 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

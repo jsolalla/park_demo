@@ -20,92 +20,9 @@ extension Int {
 }
 
 extension UIViewController {
-    
-    public func showActivityIndicator(view: UIView, seconds: Double, completion: () -> Void) {
         
-        let indicatorView = UIView()
-        indicatorView.frame = view.frame
-        indicatorView.center = view.center
-        indicatorView.backgroundColor = UIColor.clearColor()
-        
-        let loadingView: UIView = UIView()
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.center = view.center
-        loadingView.backgroundColor = UIColor.blackColor()
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
-        actInd.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        actInd.activityIndicatorViewStyle =
-            UIActivityIndicatorViewStyle.WhiteLarge
-        actInd.center = CGPointMake(loadingView.frame.size.width / 2,
-                                    loadingView.frame.size.height / 2);
-        loadingView.addSubview(actInd)
-        indicatorView.addSubview(loadingView)
-        view.addSubview(indicatorView)
-        actInd.startAnimating()
-        
-        delay(seconds: seconds) {
-            indicatorView.removeFromSuperview()
-            completion()
-        }
-        
-    }
-    
-    public func shakeView(viewToShake: UIView){
-        
-        let shake:CABasicAnimation = CABasicAnimation(keyPath: "position")
-        shake.duration = 0.1
-        shake.repeatCount = 2
-        shake.autoreverses = true
-        
-        var from_point:CGPoint = CGPointMake(viewToShake.center.x - 5, viewToShake.center.y)
-        var from_value:NSValue = NSValue(CGPoint: from_point)
-        
-        var to_point:CGPoint = CGPointMake(viewToShake.center.x + 5, viewToShake.center.y)
-        var to_value:NSValue = NSValue(CGPoint: to_point)
-        
-        shake.fromValue = from_value
-        shake.toValue = to_value
-        viewToShake.layer.addAnimation(shake, forKey: "position")
-        
-        from_point = CGPointMake(viewToShake.center.x - 5, viewToShake.center.y)
-        from_value = NSValue(CGPoint: from_point)
-        
-        to_point = CGPointMake(viewToShake.center.x + 5, viewToShake.center.y)
-        to_value = NSValue(CGPoint: to_point)
-        
-        shake.fromValue = from_value
-        shake.toValue = to_value
-        viewToShake.layer.addAnimation(shake, forKey: "position")
-    }
-    
-    public func addLeftBarButtonWithImage(buttonImage: UIImage) {
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        navigationItem.leftBarButtonItem = leftButton
-    }
-    
-    public func addRightBarButtonWithImage(buttonImage: UIImage) {
-        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        navigationItem.rightBarButtonItem = rightButton
-    }
-    
-    public func popViewController() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
     public func setUpNavigationBar(title:String) {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        self.navigationController?.navigationBar.topItem?.title = title
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor.mkPrincipalBlue()
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    }
-    
-    public func setUpSlideNavigationBar(title:String) {
         self.navigationController?.navigationBar.topItem?.title = title
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -151,21 +68,15 @@ extension UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func showAlertWithCompletionOptionsAndActions(tittle: String, yesAction: String, noAction: String, message: String, completion: (yes:Bool) -> Void) {
-        let alert = UIAlertController(title: tittle, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: noAction, style: UIAlertActionStyle.Cancel, handler: { (UIAlertAction) -> Void in
-            completion(yes:false)
-        }))
-        alert.addAction(UIAlertAction(title: yesAction, style: UIAlertActionStyle.Destructive, handler: { (UIAlertAction) -> Void in
-            completion(yes:true)
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
     func sendLocalNotificationWithText(message: String) {
+        
+        if UIApplication.sharedApplication().applicationState == .Background {
+            print("App is in backgroud")
+        }
+        
         let notification = UILocalNotification()
         notification.alertBody = message
-        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        notification.fireDate = NSDate(timeIntervalSinceNow: 0)
         notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }

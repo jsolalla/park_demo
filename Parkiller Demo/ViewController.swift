@@ -128,8 +128,10 @@ class ViewController: UIViewController {
         } else {
             lblMessageDescription.text = IN_10MTS_MESSAGE
             if !isTweetSent {
-                sendTweet()
                 self.sendLocalNotificationWithText(IN_10MTS_MESSAGE)
+                delay(seconds: 1.0, completion: { 
+                    self.sendTweet()
+                })
             }
         }
         
