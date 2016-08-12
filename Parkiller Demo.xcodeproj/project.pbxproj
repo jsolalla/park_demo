@@ -12,6 +12,11 @@
 		225344051D5D467700037012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225344031D5D467700037012 /* Main.storyboard */; };
 		225344071D5D467700037012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225344061D5D467700037012 /* Assets.xcassets */; };
 		2253440A1D5D467700037012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 225344081D5D467700037012 /* LaunchScreen.storyboard */; };
+		225344181D5D490400037012 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225344171D5D490400037012 /* Extensions.swift */; };
+		2253441A1D5D495800037012 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225344191D5D495800037012 /* Config.swift */; };
+		225344241D5D4C7400037012 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225344211D5D4C7400037012 /* GoogleMaps.framework */; };
+		225344251D5D4C7400037012 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225344221D5D4C7400037012 /* GoogleMapsBase.framework */; };
+		225344261D5D4C7400037012 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225344231D5D4C7400037012 /* GoogleMapsCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		225344061D5D467700037012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		225344091D5D467700037012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2253440B1D5D467700037012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		225344171D5D490400037012 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Config/Extensions.swift; sourceTree = "<group>"; };
+		225344191D5D495800037012 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Config/Config.swift; sourceTree = "<group>"; };
+		225344211D5D4C7400037012 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		225344221D5D4C7400037012 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		225344231D5D4C7400037012 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225344241D5D4C7400037012 /* GoogleMaps.framework in Frameworks */,
+				225344261D5D4C7400037012 /* GoogleMapsCore.framework in Frameworks */,
+				225344251D5D4C7400037012 /* GoogleMapsBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				225343FE1D5D467700037012 /* Parkiller Demo */,
+				225344161D5D476F00037012 /* Frameworks */,
 				225343FD1D5D467600037012 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,13 +68,66 @@
 		225343FE1D5D467700037012 /* Parkiller Demo */ = {
 			isa = PBXGroup;
 			children = (
+				225344131D5D469500037012 /* Config */,
+				225344141D5D46DC00037012 /* Utilities */,
+				225344151D5D46E200037012 /* Resources */,
+				225344121D5D468F00037012 /* Controller */,
+				225344111D5D468200037012 /* Views */,
 				225343FF1D5D467700037012 /* AppDelegate.swift */,
 				225344011D5D467700037012 /* ViewController.swift */,
 				225344031D5D467700037012 /* Main.storyboard */,
-				225344061D5D467700037012 /* Assets.xcassets */,
 				225344081D5D467700037012 /* LaunchScreen.storyboard */,
+				225344061D5D467700037012 /* Assets.xcassets */,
 				2253440B1D5D467700037012 /* Info.plist */,
 			);
+			path = "Parkiller Demo";
+			sourceTree = "<group>";
+		};
+		225344111D5D468200037012 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		225344121D5D468F00037012 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		225344131D5D469500037012 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				225344191D5D495800037012 /* Config.swift */,
+				225344171D5D490400037012 /* Extensions.swift */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		225344141D5D46DC00037012 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		225344151D5D46E200037012 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		225344161D5D476F00037012 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				225344211D5D4C7400037012 /* GoogleMaps.framework */,
+				225344221D5D4C7400037012 /* GoogleMapsBase.framework */,
+				225344231D5D4C7400037012 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
 			path = "Parkiller Demo";
 			sourceTree = "<group>";
 		};
@@ -136,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				225344021D5D467700037012 /* ViewController.swift in Sources */,
+				2253441A1D5D495800037012 /* Config.swift in Sources */,
+				225344181D5D490400037012 /* Extensions.swift in Sources */,
 				225344001D5D467700037012 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +318,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parkiller",
+					Demo,
+					"$(PROJECT_DIR)/Parkiller",
+					Demo/Frameworks,
+				);
 				INFOPLIST_FILE = "Parkiller Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jsolalla.Parkiller-Demo";
@@ -260,6 +336,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Parkiller",
+					Demo,
+					"$(PROJECT_DIR)/Parkiller",
+					Demo/Frameworks,
+				);
 				INFOPLIST_FILE = "Parkiller Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jsolalla.Parkiller-Demo";
